@@ -3,6 +3,11 @@ import dht11
 import time
 import datetime
 from time import sleep
+import requests
+TOKEN1 = "8128357121:AAF-1qgiCVYzbsQk00L13cJCc_zIptu6vZo"
+chat_id1 = "5053817722"
+message1 = "Temperature reaching dangerous level"
+Message2 = "Fire Detected, Attention Required!!!"
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -28,6 +33,9 @@ try:
             GPIO.output(18,0)
             GPIO.output(24,0)
             sleep(1)
+            url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id1}&text={message1}"
+            print(requests.get(url).json())
+
         if result.temperature> 27:
             GPIO.output(18,1)
             GPIO.output(24,1)
@@ -35,6 +43,8 @@ try:
             GPIO.output(18,0)
             GPIO.output(24,0)
             sleep(1)
+            url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id1}&text={Message2}"
+            print(requests.get(url).json())
             
             
         
