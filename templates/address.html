@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .form-container form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .address-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Enter Your Address</h1>
+
+    <div class="form-container">
+        <form action="/address" method="POST">
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address" required>
+            <button type="submit">Save Address</button>
+        </form>
+    </div>
+
+    <div class="address-container">
+        <h2>Saved Address</h2>
+        {% if address %}
+            <p>{{ address }}</p>
+        {% else %}
+            <p>No address saved yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="button-container">
+        <a href="/" class="btn">Back to ThingSpeak Charts</a>
+    </div>
+
+</body>
+</html>
+
+
+
+
+      
+
+      
